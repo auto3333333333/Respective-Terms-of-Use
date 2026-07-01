@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>利用規約ポータルポータル</title>
+    <style>
+        /* --- 基本設定（リセット・共通） --- */
+        :root {
+            --bg-color: #f4f6f9;
+            --text-color: #333333;
+            --card-bg: #ffffff;
+            --primary-color: #4a90e2; /* アクセントカラー（お好みで変更してください） */
+            --border-color: #e1e4e8;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            line-height: 1.6;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        /* --- ヘッダー部分 --- */
+        header {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        header h1 {
+            font-size: 2rem;
+            margin-bottom: 10px;
+            color: #111;
+        }
+
+        header p {
+            color: #666;
+            font-size: 1rem;
+        }
+
+        /* --- 規約カードの並び（ここが崩れない肝です） --- */
+        .terms-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 24px; /* カード同士の間隔 */
+            justify-content: center;
+        }
+
+        /* --- カード単体のデザイン --- */
+        .term-card {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 24px;
+            /* 3列をベースにしつつ、画面幅に合わせて柔軟に伸縮 */
+            flex: 1 1 calc(33.333% - 24px); 
+            min-width: 280px; /* 画面が小さくなってもこれ以上は縮まず、自動で改行される */
+            max-width: calc(50% - 12px); /* 2個の時も広がりすぎないように制限 */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.02);
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        /* マウスを乗せた時の動き */
+        .term-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.06);
+        }
+
+        .term-card h2 {
+            font-size: 1.25rem;
+            margin-bottom: 12px;
+            color: #111;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .term-card p {
+            font-size: 0.9rem;
+            color: #555;
+            margin-bottom: 20px;
+            flex-grow: 1; /* テキスト量が変わってもボタンの位置を揃える */
+        }
+
+        .term-card .meta-info {
+            font-size: 0.75rem;
+            color: #999;
+            margin-bottom: 16px;
+        }
+
+        /* 規約へ飛ぶボタン */
+        .btn {
+            display: inline-block;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            padding: 10px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
+            font-weight: bold;
+            transition: background-color 0.2s;
+        }
+
+        .btn:hover {
+            background-color: #357abd; /* ホバー時に少し暗く */
+        }
+
+        /* --- フッター --- */
+        footer {
+            text-align: center;
+            margin-top: 60px;
+            font-size: 0.85rem;
+            color: #888;
+        }
+
+        /* --- スマホ用調整 --- */
+        @media (max-width: 600px) {
+            .term-card {
+                max-width: 100%; /* スマホでは1列に */
+            }
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+
+    <header>
+        <h1>利用規約ポータル</h1>
+        <p>提供する各種サービス・ツールの利用規約一覧です。</p>
+    </header>
+
+    <main class="terms-grid">
+
+        <section class="term-card">
+            <div>
+                <h2>Discord BOT 利用規約</h2>
+                <div class="meta-info">改定日: 2026年07月01日</div>
+                <p>当方が開発・運営するDiscord BOTをサーバーに導入、または利用する際の禁止事項や免責事項を定めています。</p>
+            </div>
+            <a href="terms_of_service.html" class="btn">規約を確認する</a>
+        </section>
+
+        <section class="term-card">
+            <div>
+                <h2>ウェブサイト 利用規約</h2>
+                <div class="meta-info">改定日: 2026年07月01日</div>
+                <p>本ウェブサイト（各種オンラインサービスを含む）を閲覧・利用されるすべてのユーザーに適用されるルールです。</p>
+            </div>
+            <a href="website-terms.html" class="btn">規約を確認する</a>
+        </section>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2026 BOT開発チーム / Auto3. All rights reserved.</p>
+    </footer>
+
+</div>
+
+</body>
+</html>
